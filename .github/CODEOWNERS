@@ -1,2 +1,6 @@
-*
-/.github/ @yangbobo2021
+# SPDX-FileCopyrightText: 2026 boob.yang
+# Replace with teams that have write access before installation.
+* @EXAMPLE_ORG/maintainers
+/.github/ @EXAMPLE_ORG/build-owners
+/.claude/ @EXAMPLE_ORG/agent-policy-owners
+/deploy/ @EXAMPLE_ORG/release-owners
