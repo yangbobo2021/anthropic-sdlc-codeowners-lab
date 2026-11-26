@@ -5,18 +5,12 @@ import os
 import subprocess
 
 REPO = "yangbobo2021/anthropic-sdlc-codeowners-lab"
-CASES = {
-    "fallback-default": "codeowners-fallback",
-    "fallback-ci": "codeowners-fallback",
-    "fallback-nested": "codeowners-fallback",
-    "ci-default": "codeowners-ci",
-    "ci-override": "codeowners-ci",
-}
+CASES = {"ci-override": "codeowners-ruleset"}
 
 
 def main():
     assert os.environ["GITHUB_REPOSITORY"] == REPO
-    assert os.environ["GITHUB_REF"] == "refs/heads/main"
+    assert os.environ["GITHUB_REF"] == "refs/heads/codex/owner-ruleset-driver"
     for case, base in CASES.items():
         head = f"codex/owner-case-{case}"
         payload = {"title": f"CODEOWNERS fixture {case}", "head": head, "base": base,

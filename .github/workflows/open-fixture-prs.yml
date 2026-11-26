@@ -8,7 +8,7 @@ jobs:
     if: >-
       github.repository == 'yangbobo2021/anthropic-sdlc-codeowners-lab' &&
       github.actor == 'yangbobo2021' &&
-      github.ref == 'refs/heads/main' && github.ref_protected
+      github.ref == 'refs/heads/codex/owner-ruleset-driver' && github.ref_protected
     runs-on: ubuntu-latest
     timeout-minutes: 4
     steps:
