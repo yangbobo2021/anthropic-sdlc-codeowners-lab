@@ -1,0 +1,22 @@
+name: Open synthetic CODEOWNERS pull requests
+on: workflow_dispatch
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  open:
+    if: >-
+      github.repository == 'yangbobo2021/anthropic-sdlc-codeowners-lab' &&
+      github.actor == 'yangbobo2021' &&
+      github.ref == 'refs/heads/main' && github.ref_protected
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+      - name: Open one PR per fixed test branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 probe/open_prs.py
